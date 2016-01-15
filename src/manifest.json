@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  "name": "Sticker Telesportation",
+  "description": "no comment",
+  "version": "1.0",
+  "content_scripts": [
+  {
+    "matches": ["https://store.line.me/stickershop/product/*"],
+    "js": ["jquery-2.1.4.min.js", "main.js"]
+  }
+  ],
+  "web_accessible_resources": [
+    "override.js"
+  ],
+  "permissions": [
+    "activeTab", "http://store.line.me/stickershop/product/*", "https://sdl-stickershop.line.naver.jp/*"
+  ]
+}
