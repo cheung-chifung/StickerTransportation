@@ -68,6 +68,12 @@ jQuery(function(){
 });
 */
 
+document.addEventListener("downloadAll", function (e) {
+  console.log(e);
+  var urlList = e.detail.urlList;
+  console.log(urlList);
+}, false);
+
 jQuery(function(){
   var s = document.createElement("script");
   s.src = chrome.extension.getURL("override.js");

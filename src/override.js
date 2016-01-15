@@ -150,6 +150,17 @@ function addDownloadButton() {
   var $btnBox = jQuery('.mdCMN08Ul');
   var $btnDownload = jQuery('<a class = "MdBtn01 mdBtn02"><span class="mdBtn01Inner"><span class="mdBtn01Txt">Download</span></span></a>');
   $btnBox.append($btnDownload);
+  $btnBox.click(function(e){
+    var urlList = getAllImageURL();
+    var downloadAllEvent = document.createEvent('CustomEvent');
+    downloadAllEvent.initCustomEvent('downloadAll', true, true, {urlList: urlList, help:'test'});
+    document.dispatchEvent(downloadAllEvent);
+  });
+}
+
+function getAllImageURL() {
+  var urlRegex = /(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?/g;
+  return jQuery('ul.FnSticker_animation_list_img .mdCMN09Image').map(function(i, e){return jQuery(e).css('background-image').match(urlRegex)});
 }
 
 console.log('test ');
